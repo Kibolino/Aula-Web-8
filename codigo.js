@@ -37,21 +37,36 @@ function download() {
 }
 var usuarios;
 
-function pegadados(dados){
-    console.log(dados[0].id);
-    console.log(dados[0].id);
-    //dados(0).id
+function pegadados(dados) {
+  //console.log(dados[0].id);
+  //console.log(dados[0].address.street);
+  let tbody = document.getElementById("tbody");
+  for (let i = 0; i < dados.length; i++) {
+    let tr = tbody.insertRow();
+
+    let td_usuario = tr.insertCell();
+    let td_nome = tr.insertCell();
+    let td_email = tr.insertCell();
+    let td_endereco = tr.insertCell();
+
+    td_usuario.innerHTML = dados[i].id;
+    console.log(td_usuario);
+    td_nome.innerHTML = dados[i].name;
+    td_email.innerHTML = dados[i].email;
+    td_endereco.innerHTML = dados[i].address.street;
+  }
 }
 
 function getUsuariosByFetch() {
+  console.log("Antes do fetch");
 
-    console.log("Antes do fetch");
-
-    fetch("https://jsonplaceholder.typicode.com/users")
+  fetch("https://jsonplaceholder.typicode.com/users")
     .then((response) => response.json())
-    .then((json) => pegadados (json))
+    .then((json) => pegadados(json))
     //.then((json) => console.log(json))
-    .catch((e)=> console.log("ERRO na requisição"+e));
+    .catch((e) => console.log("ERRO na requisição" + e));
 
-    console.log("Depois do fetch");
-    }
+  console.log("Depois do fetch");
+}
+
+
