@@ -50,7 +50,6 @@ function pegadados(dados) {
     let td_endereco = tr.insertCell();
 
     td_usuario.innerHTML = dados[i].id;
-    console.log(td_usuario);
     td_nome.innerHTML = dados[i].name;
     td_email.innerHTML = dados[i].email;
     td_endereco.innerHTML = dados[i].address.street;
